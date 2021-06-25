@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hilalyadigaryilmaz/Anasayfa.dart';
+import 'package:hilalyadigaryilmaz/anaekran.dart';
+import 'package:hilalyadigaryilmaz/ekranlar/Anasayfa.dart';
+import 'package:hilalyadigaryilmaz/kullaniciVerileri/pages/Anasayfa.dart';
 import 'package:hilalyadigaryilmaz/Hakkinda.dart';
 
 class Giris extends StatefulWidget {
@@ -18,7 +20,7 @@ class _GirisState extends State<Giris> {
           primarySwatch: Colors.blueGrey,
           accentColor: Colors.blueGrey[600]),
       home: Scaffold(
-          appBar: AppBar(title: Text("                                                                                      Giriş Ekranı",
+          appBar: AppBar(title: Text("Giriş Ekranı",
             style: TextStyle(fontSize: 20.0, color: Colors.white),
           ),),
           body: Girisekrani()),
@@ -33,17 +35,7 @@ class Girisekrani extends StatelessWidget {
     return _Girisekrani(context);
   }
 }
-
 Widget _Girisekrani (BuildContext context) {
-  final emailField = TextField(
-    obscureText: false,
-    decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Kullanıcı adı",
-        border:
-        OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))
-    ),
-  );
 
   final GirisButton = Material(
     elevation: 5.0,
@@ -57,41 +49,15 @@ Widget _Girisekrani (BuildContext context) {
       padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
       onPressed: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Anasayfa()));
+            MaterialPageRoute(builder: (context) => Anaekran()));
 
       },
 
-      child: Text("Giriş yap",
+      child: Text("Hadi Üniversitelere Bakalım",
         textAlign: TextAlign.center,
         style: TextStyle(color: Colors.white, fontStyle: FontStyle.normal),),
     ),
   );
-
-
-  final HakkindaButton = Material(
-    elevation: 5.0,
-    borderRadius: BorderRadius.circular(30.0),
-    color: Colors.blueGrey[300],
-    child: MaterialButton(
-      minWidth: MediaQuery
-          .of(context)
-          .size
-          .width,
-      padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-      onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => Hakkinda()));
-      },
-
-      child: Text("HAKKINDA",
-        textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white, fontStyle: FontStyle.normal),
-
-      ),
-
-    ),
-  );
-
 
   return Center(
     child: Container(
@@ -104,15 +70,11 @@ Widget _Girisekrani (BuildContext context) {
 
             Image.asset("resimler/mezun.png"),
 
-            SizedBox(height: 10.0),
-            emailField,
+
 
 
             SizedBox(height: 15.0),
             GirisButton,
-
-            SizedBox(height: 10.0),
-            HakkindaButton
 
           ],
         ),
